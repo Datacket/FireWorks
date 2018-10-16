@@ -1,2 +1,2 @@
 ## LSTM-CNN
-LSTM Based on CNN Encoder for video analysis and binary classification.
+CNN Encoder with LSTM for video analysis and binary classification.
