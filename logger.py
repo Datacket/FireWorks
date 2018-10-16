@@ -22,10 +22,10 @@ class Log:
         elif val == 20:
             txt = "INFO"
         elif val == 10:
-            txt == "DEBUG"
+            txt = "DEBUG"
         else:
             txt = ""
-        sys.stderr.write(txt+" : "+ self.class_name+" : "message+"\n")
+        sys.stderr.write(txt+" : "+ self.class_name+" : "+message+"\n")
         if val == 50:
             exit()
             

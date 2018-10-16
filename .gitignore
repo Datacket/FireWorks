@@ -2,5 +2,5 @@ __pycache__/
 .fuse*
 *.zip
 *.avi
-
+.*.swp
 *.mp4
