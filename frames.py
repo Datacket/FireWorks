@@ -5,10 +5,11 @@ import logger
 import glob
 import numpy as np
 class FrameData:
-    def __init__(self,video_folder,window_size = None,frame_step = 5,dim =(None,None),normalize = True,dtype = np.float32):
+    def __init__(self,video_folder,type_ = None,window_size = None,frame_step = 5,dim =(None,None),normalize = True,dtype = np.float32):
         self.window_size = window_size
         self.log = logger.Log("FRAMES")
         self.frame_step = frame_step
+        self.type(type_)
         video_folder = os.path.abspath(os.path.expanduser(video_folder))
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
@@ -50,7 +51,8 @@ class FrameData:
             window_size = self.window_size
         else:
             window_size = 1
-        if random.randint(0,1):
+        t = random.randint(0,1) if self.type_ is None else self.type_
+        if t:
             _dir = "pos"
             sense = 0
             idx = random.randint(0,len(self.posFiles)-1)
