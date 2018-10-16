@@ -5,9 +5,10 @@ import logger
 import glob
 import numpy as np
 class FrameData:
-    def __init__(self,video_folder,window_size = None,dim =(None,None),normalize = True,dtype = np.float32):
+    def __init__(self,video_folder,window_size = None,frame_step = 5,dim =(None,None),normalize = True,dtype = np.float32):
         self.window_size = window_size
         self.log = logger.Log("FRAMES")
+        self.frame_step = frame_step
         video_folder = os.path.abspath(os.path.expanduser(video_folder))
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
@@ -79,7 +80,7 @@ class FrameData:
                 window_size = 1
             for i in range(window_size):
                 flag,frame = cap.read()
-                cap.set(1,pos+5)
+                cap.set(1,pos+self.frame_step)
                 if flag:
                     frame = cv2.resize(frame,(width,height))
                     frame = self.dtype(frame)
