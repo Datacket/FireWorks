@@ -8,6 +8,7 @@ class FrameData:
     def __init__(self,video_folder,window_size = None,dim =(None,None),normalize = True,dtype = np.float32):
         self.window_size = window_size
         self.log = logger.Log("FRAMES")
+        video_folder = os.path.abspath(os.path.expanduser(video_folder))
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
             os.listdir(video_folder+"/pos")
@@ -34,7 +35,7 @@ class FrameData:
         if len(negFiles)==0:
             self.log.log(logger.critical,"Supported Video File(s) [mp4, avi] Not Found in pos/ folder")
         os.chdir("..")
-        self.cwd = os.getcwd()
+        self.cwd = video_folder
         self.dtype = dtype
         if (dim[0] and dim[1]) or not (dim[0] and dim[1]):
             self.dim = dim
@@ -70,7 +71,7 @@ class FrameData:
             frames = np.empty(shape = [0,height,width,num_channels],dtype = np.float32)
             senses = np.zeros(shape = [window_size,2],dtype = np.float32)
             cap.set(cv2.CAP_PROP_POS_FRAMES,0)
-            pos = random.randint(5,num_frames-window_size)
+            pos = random.randint(0,num_frames-window_size-5)
             cap.set(1,pos)
             if self.window_size:
                 window_size = self.window_size
@@ -78,11 +79,13 @@ class FrameData:
                 window_size = 1
             for i in range(window_size):
                 flag,frame = cap.read()
+                cap.set(1,pos+5)
                 if flag:
                     frame = cv2.resize(frame,(width,height))
                     frame = self.dtype(frame)
                     if self.normalize:
                         frame = frame/self.dtype(max(frame.flatten()))
+                    frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
                     frames = np.append(frames,frame.reshape([1]+list(frame.shape[:])),axis = 0)
                     senses[i,sense] = 1
             self.log.log(logger.dbg,"FRAME SHAPE: {}, Sense Shape: {}".format(frames.shape,senses.shape))

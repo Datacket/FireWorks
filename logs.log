@@ -1,1 +1,13 @@
 CRITICAL: 2018-10-16 12:47:39,922: FRAMES: Need a folder named neg containing the positive videos
+WARNING: 2018-10-16 14:21:41,814: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:21:49,530: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:22:00,117: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:23:57,546: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:24:03,814: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:24:07,200: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:24:10,267: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:24:43,882: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:24:54,123: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 14:59:38,076: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 15:00:00,891: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+WARNING: 2018-10-16 15:02:05,184: Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
