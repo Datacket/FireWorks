@@ -9,7 +9,7 @@ class FrameData:
         self.window_size = window_size
         self.log = logger.Log("FRAMES")
         self.frame_step = frame_step
-        self.type(type_)
+        self.type_ =type_
         video_folder = os.path.abspath(os.path.expanduser(video_folder))
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
@@ -51,15 +51,13 @@ class FrameData:
             window_size = self.window_size
         else:
             window_size = 1
-        t = random.randint(0,1) if self.type_ is None else self.type_
-        if t:
+        sense = random.randint(0,1) if self.type_ is None else self.type_
+        if sense:
             _dir = "pos"
-            sense = 0
             idx = random.randint(0,len(self.posFiles)-1)
             _file = self.posFiles[idx]
         else:
             _dir = "neg"
-            sense = 1
             idx = random.randint(0,len(self.negFiles)-1)
             _file = self.negFiles[idx]
         cap = cv2.VideoCapture(self.cwd+"/"+_dir+"/"+_file)
