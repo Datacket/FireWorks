@@ -11,6 +11,8 @@ class FrameData:
         self.frame_step = frame_step
         self.type_ =type_
         video_folder = os.path.abspath(os.path.expanduser(video_folder))
+        if video_folder[-1]!="/":
+        	video_folder += "/"
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
             os.listdir(video_folder+"pos")
