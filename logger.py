@@ -27,5 +27,5 @@ class Log:
             txt = ""
         sys.stderr.write(txt+" : "+ self.class_name+" : "+message+"\n")
         if val == 50:
-            exit()
+            raise ValueError("CRITICAL")
             
