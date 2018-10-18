@@ -1,6 +1,12 @@
 __pycache__/
+
 .fuse*
+
 *.zip
+
 *.avi
+
 .*.swp
+
 *.mp4
+.ipynb_checkpoints/

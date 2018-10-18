@@ -13,8 +13,8 @@ class FrameData:
         video_folder = os.path.abspath(os.path.expanduser(video_folder))
         s_ftypes = "*.mp4 *.avi".split(" ")
         try:
-            os.listdir(video_folder+"/pos")
-            os.chdir(video_folder+"/pos")
+            os.listdir(video_folder+"pos")
+            os.chdir(video_folder+"pos")
         except FileNotFoundError:
             self.log.log(logger.critical,"Need a folder named pos containing the positive videos")
             raise
@@ -25,8 +25,8 @@ class FrameData:
         if len(posFiles)==0:
             self.log.log(logger.critical,"Supported Video File(s) [mp4, avi] Not Found in pos/ folder")
         try:
-            os.listdir(video_folder+"/neg")
-            os.chdir(video_folder+"/neg")
+            os.listdir(video_folder+"neg")
+            os.chdir(video_folder+"neg")
         except FileNotFoundError:
             self.log.log(logger.critical,"Need a folder named neg containing the positive videos")
             raise
