@@ -72,7 +72,7 @@ class FrameData:
             if flag:
                 num_channels = frame.shape[-1]
             frames = np.empty(shape = [0,height,width,num_channels],dtype = np.float32)
-            senses = np.zeros(shape = [window_size],dtype = np.float32)
+            senses = np.zeros(shape = [window_size,2],dtype = np.float32)
             cap.set(cv2.CAP_PROP_POS_FRAMES,0)
             pos = random.randint(0,num_frames-window_size-5)
             cap.set(1,pos)
@@ -90,7 +90,7 @@ class FrameData:
                         frame = frame/self.dtype(max(frame.flatten()))
                     frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
                     frames = np.append(frames,frame.reshape([1]+list(frame.shape[:])),axis = 0)
-                    senses[i] = sense
+                    senses[i,sense] = 1
             self.log.log(logger.dbg,"FRAME SHAPE: {}, Sense Shape: {}".format(frames.shape,senses.shape))
             return frames,senses
         else:
